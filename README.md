@@ -18,5 +18,6 @@ el proyecto cuenta con un archivo de variables de entorno con la siguiente varia
 
 
   VITE_API="URL del su backen"
+  VITE_URL_PROFILE_IMAGE="URL para poder ver las imagenes de perfil."
 
-# diary-frontend
+en la carpeta de nas se encuentra un Dump de la base de datos.
