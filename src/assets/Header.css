@@ -1,0 +1,136 @@
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos del nav (igual que antes) */
+.main-nav {
+  position: fixed;
+  top: 5%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 100;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  margin: 0 auto;
+  width: 95%;
+  height: 60px;
+  max-width: 1600px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  gap: 0;
+  transition: all 0.2s ease;
+}
+
+
+
+.nav-group {
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-group a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1rem;
+}
+
+.nav-group a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.nav-left {
+  /* border-left: 1px solid rgba(255, 255, 255, 0.2); */
+  /* Línea divisoria opcional */
+  margin-left: 0;
+  /* Elimina cualquier margen */
+  padding-left: 15px;
+  /* Espacio interno */
+  position: relative;
+  /* Para línea divisoria opcional */
+}
+
+
+.nav-right li:last-child a {
+  background: #fff3;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.nav-right li:last-child a:hover {
+  background: #45a049;
+}
+
+/* Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  margin-right: 0; /* Elimina el margen automático */
+  padding-right: 15px; /* Espacio controlado después del logo */
+}
+
+.nav-logo img {
+  height: 40px;
+  transition: transform 0.3s;
+}
+
+.nav-logo:hover img {
+  transform: rotate(15deg);
+}
+
+/* Menú móvil (opcional) */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-group {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .main-nav {
+    padding: 0 20px;
+  }
+}
+
+.main-nav.scrolled {
+  top: 0;
+  transform: translateY(0);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  border-radius: 0px;
+  height: 80px;
+}

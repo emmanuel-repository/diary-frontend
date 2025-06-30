@@ -1,0 +1,52 @@
+
+.market-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-image: url('https://img.peapix.com/21314f78c116467682f426b22af1dba6_UHD.jpg'); */
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 500px;
+  gap: 40px;
+  border-radius: 25px;
+}
+
+.market-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 100%;
+  background-color: #252936;
+  clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
+  border-radius: 25px;
+}
+
+.market-hero-content {
+  display: grid;
+  place-items: center;
+  max-width: 1200px;
+  /* padding: 0 20px; */
+  width: 100%;  
+}
+
+.market-side-content {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.market-title-image-text {
+  width: 500px;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 0.97;
+  color: aliceblue;
+  
+}
+
