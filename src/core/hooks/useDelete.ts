@@ -4,6 +4,28 @@ import { contactService } from "../services/contact.service";
 import { useApi } from "./useApi";
 import { ApiError } from "../interfaces/api.interface";
 import { Phone } from "../interfaces/phone.interface";
+import { ContactFormData } from "../interfaces/contactFormControl.inteface";
+
+
+
+export const useDeleteContact = (onDeleted?: (id: number) => void) => {
+
+  return useApi((contact: ContactFormData) => contactService.deleteContact(contact.id!), {
+    autoFetch: false,
+
+    onSuccess: (data) => {
+      console.log('Contacto eliminado correctamente');
+      onDeleted?.(data);
+      successAlert('Se quito el Numero de telefono de sus registro')
+    },
+
+    onError: (error: ApiError) => {
+      console.error('Error eliminando contacto:', error.message);
+      infoAlert('Error', error.message)
+    },
+  });
+
+};
 
 export const useDeleteEmail = (onDeleted?: (id: number) => void) => {
 

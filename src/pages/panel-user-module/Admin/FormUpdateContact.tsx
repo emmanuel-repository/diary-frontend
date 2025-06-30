@@ -16,7 +16,6 @@ import { useFieldArray, useForm } from "react-hook-form";
 
 export default function FormUpdateContact() {
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [profileImage, setProfileImage] = useState<File | null>(null);
   const { contactData, setDataContact, updateContactInList } = useContactStore();
   const { refetch: deleteEmail } = useDeleteEmail();

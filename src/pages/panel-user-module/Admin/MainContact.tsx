@@ -7,12 +7,14 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useContactStore } from "@/core/stores/contact.store";
 import { ContactFormData } from "@/core/interfaces/contactFormControl.inteface";
+import { useDeleteContact } from "@/core/hooks/useDelete";
+import { confirmationAlert } from "@/components/custom/Swal";
 
 
 export default function MainContact() {
 
   const navigate = useNavigate();
-  const { setDataContact } = useContactStore();
+  const { setDataContact, contactList, fetchContact } = useContactStore();
 
   const handleRedirectRegister = useCallback(() => navigate('/new-contact'), []);
 
@@ -21,9 +23,26 @@ export default function MainContact() {
     navigate(`/edit-contact`);
   }, []);
 
+  const { refetch: deletContact } = useDeleteContact((deletedId) => {
+    console.log(deletedId)
+    fetchContact(contactList.filter((contact) => contact.id !== deletedId));
+  })
+
+  const handleDeleteContact = useCallback(async (contact: ContactFormData) => {
+    const confirmed = await confirmationAlert("Se borrará el registro seleccionado, ¡No se podrá revertir!");
+
+    if (confirmed.isConfirmed) {
+      setDataContact(contact); // para que useApi tenga el `userData` correcto
+      deletContact(contact); // llama al DELET
+    }
+  }, []);
+
   const listActions = useMemo<ActionsTable[]>(
-    () => [{ description: "Ver", callbacks: handleRedirectUpdate }],
-    [handleRedirectUpdate]
+    () => [
+      { description: "Ver", callbacks: handleRedirectUpdate },
+      { description: "Borrar Contacto", callbacks: handleDeleteContact }
+    ],
+    [handleRedirectUpdate, handleDeleteContact]
   );
 
   return (

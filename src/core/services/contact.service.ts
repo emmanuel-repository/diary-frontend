@@ -22,6 +22,12 @@ export const contactService = {
       body: contact,
     });
   },
+  
+  async deleteContact(contactId: number): Promise<any> {
+    return fetchWithAuth(`${import.meta.env.VITE_API}/user/${contactId}`, {
+      method: "DELETE",
+    });
+  },
 
   async deleteEmailContact(emailId: number): Promise<any> {
     return fetchWithAuth(`${import.meta.env.VITE_API}/user/email/${emailId}`, {
