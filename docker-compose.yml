@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+    ports:
+      - "3000:80"
+    environment:
+      - VITE_API=http://host.docker.internal:4000/api
+      - VITE_URL_PROFILE_IMAGE=http://host.docker.internal:4000/public/uploads/
