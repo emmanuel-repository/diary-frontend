@@ -19,10 +19,3 @@ el proyecto cuenta con un archivo de variables de entorno con la siguiente varia
 
   VITE_API="URL del su backen"
   VITE_URL_PROFILE_IMAGE="URL para poder ver las imagenes de perfil."
-
-
-Para crear la dockerizacion del API se tiene que ejecutar los siguientes comandos:
-
-  - docker-compose up -d elasticsearch fluentd
-  - docker-compose up -d mysql backend
-  - docker-compose up -d nginx
